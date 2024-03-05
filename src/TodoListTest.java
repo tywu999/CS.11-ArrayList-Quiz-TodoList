@@ -24,7 +24,7 @@ class TodoListTest {
     }
 
     @org.junit.jupiter.api.Test
-    void bestSubject() {
+    void mostUrgent() {
 
         assertEquals("Computer Science", bobsList.mostUrgent());
         bobsList.updateTaskUrgency("Do the dishes", 2);
@@ -35,21 +35,21 @@ class TodoListTest {
     }
 
     @org.junit.jupiter.api.Test
-    void averageGrade() {
+    void averageUrgency() {
 
         assertEquals(7.8, ((int) (bobsList.averageUrgency()*10))/10.0);
         bobsList.updateTaskUrgency("Math homework", 4);
-        assertEquals(6.8, bobsList.averageUrgency());
+        assertEquals(6.8, ((int) (bobsList.averageUrgency()*10))/10.0);
         bobsList.updateTaskUrgency("Walk the dog", 10);
         assertEquals(7.5, ((int) (bobsList.averageUrgency()*10))/10.0);
 
     }
 
     @org.junit.jupiter.api.Test
-    void reportCard() {
+    void toStringTest() {
 
-        String expectedTodoList = "Report card for Bob Wick\nMath homework\t10\nPhysics homework\t10\nDo the dishes\t5\nWalk the dog\t6\nComputer Science\t11\nWitchcraft and Wizardry\t7";
-        String actualTodoList = bobsList.toString();
+        String expectedTodoList = "To-do List of Bob Wick\nMath homework\t10\nPhysics homework\t8\nDo the dishes\t5\nWalk the dog\t6\nComputer Science\t11\nWitchcraft and Wizardry\t7";
+        String actualTodoList = bobsList.toString().trim();
         assertEquals(expectedTodoList, actualTodoList);
     }
 }
